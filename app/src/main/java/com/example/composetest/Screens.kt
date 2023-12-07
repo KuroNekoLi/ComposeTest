@@ -1,5 +1,6 @@
 package com.example.composetest
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,16 +28,17 @@ fun BScreen() {
 }
 
 @Composable
-fun CScreen(navController: NavController,modifier: Modifier = Modifier) {
+fun CScreen(modifier: Modifier = Modifier,onClicked:()->Unit) {
     Column(
         modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Button(onClick = { navController.navigate("D") }) {
+        Button(onClick = onClicked
+        ) {
             Text("Go to D Screen")
         }
-        Button(onClick = { navController.navigate("E") }) {
+        Button(onClick = {  }) {
             Text("Go to E Screen")
         }
     }
